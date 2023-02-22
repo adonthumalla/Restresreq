@@ -135,6 +135,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models_DTO\CreatUserRes.cs" />
+    <Compile Include="Models_DTO\LoginUserRes.cs" />
+    <Compile Include="Models_DTO\RegisterUserReq.cs" />
+    <Compile Include="Models_DTO\RegisterUserRes.cs" />
+    <Compile Include="Models_DTO\UpdateUserRes.cs" />
     <Compile Include="Models_DTO\UserData.cs" />
     <Compile Include="Models_DTO\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APIAutomationSetup.Models
+namespace APIAutomationSetup.Models_DTO
 {
 
-    public class CreateUserRes
+
+    public class UpdateUserRes
     {
         public string name { get; set; }
         public string job { get; set; }
-        public string id { get; set; }
-        public DateTime createdAt { get; set; }
+        public DateTime updatedAt { get; set; }
     }
 
+
 }
-    
