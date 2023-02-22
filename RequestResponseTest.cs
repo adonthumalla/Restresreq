@@ -1,4 +1,5 @@
 ﻿using APIAutomationSetup.Models;
+using APIAutomationSetup.Models_DTO;
 using Newtonsoft.Json;
 using Restresreq.Models;
 using RestSharp;
@@ -11,12 +12,12 @@ using System.Threading.Tasks;
 namespace APIAutomationSetup
 {
     public class RequestResponseTest
-    { 
+    {
         private UserHelper userHelper;
 
-        public RequestResponseTest() 
+        public RequestResponseTest()
         {
-            userHelper = new UserHelper();  
+            userHelper = new UserHelper();
         }
 
         public UserHelper UserHelper { get; private set; }
@@ -50,5 +51,35 @@ namespace APIAutomationSetup
             return users;
         }
 
+        public UpdateUserRes CreatePutRequest(string payload)
+        {
+            var client = userHelper.SetUrl("api/users/2");
+            var request = userHelper.CreatePutRequest(payload);
+            var response = userHelper.GetResponse(client, request);
+            var updateuser = userHelper.GetContent<UpdateUserRes>(response);
+            return updateuser;
+
+        }
+
+        public int CreateDeleteRequest()
+        {
+            var client = userHelper.SetUrl("api/users/2");
+            var request = userHelper.CreateDeleteRequest();
+            var response = userHelper.GetResponse(client, request);
+            var statusCode = userHelper.GetStatusCode(response);
+            return statusCode;
+
+        }
+
+        /*public RegisterSuccessful CreateRegisterRequest()
+        {
+            var client = userHelper.SetUrl("api/register");
+            var request = userHelper.CreateRegisterRequest();
+            var response = userHelper.GetResponse(client, request);
+            var registeruser = userHelper.GetContent<RegisterSuccessful>(response);
+            return registeruser;
+
+        }*/
     }
 }
+
